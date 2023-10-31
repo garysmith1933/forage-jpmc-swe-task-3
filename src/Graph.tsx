@@ -22,11 +22,16 @@ class Graph extends Component<IProps, {}> {
     // Get element from the DOM.
     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
 
+    // adjust schema to take info of two stocks instead of one
     const schema = {
-      stock: 'string',
-      top_ask_price: 'float',
-      top_bid_price: 'float',
+      //need the price of two stocks to get the ratio
+      price_abc: 'float',
+      price_def: 'float',
+      ratio: 'float',
       timestamp: 'date',
+      upper_bound: 'float',
+      lower_bound: 'float',
+      trigger_alert: 'float'
     };
 
     if (window.perspective && window.perspective.worker()) {
